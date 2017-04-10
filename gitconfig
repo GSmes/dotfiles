@@ -24,6 +24,9 @@
   default = simple
 [pull]
   ff = only
+[user]
+	name = Garrett Smestad
+	email = garrett.smestad@gmail.com
 [credential]
   helper = osxkeychain
 [init]

@@ -77,6 +77,7 @@ install ruby-build
 
 # Python
 install python
+install pyenv
 
 # Remove outdated versions from the cellar
 cleanup

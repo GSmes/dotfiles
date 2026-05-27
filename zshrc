@@ -16,9 +16,12 @@ export BLOCK_SIZE=human-readable # https://www.gnu.org/software/coreutils/manual
 export HISTSIZE=11000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
-
+export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 
 # completion
+# Ensure zsh's stock functions dir (where compinit lives) is on fpath.
+# Homebrew installs compinit under share/zsh/functions, not the Cellar path.
+fpath=(/usr/local/share/zsh/functions $fpath)
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
@@ -27,14 +30,9 @@ else
   compinit -C
 fi
 
-# use vim as the visual editor
-export EDITOR='vim'
-
 # enable colored output from ls, etc
 export CLICOLOR=1
 
-# NVM settings (Node.JS)
-#
 # Lazy load nvm on first use
 export NVM_LAZY_LOAD=true
 # NVM auto use
@@ -47,3 +45,5 @@ source ~/.zplugrc
 
 # Aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+eval "$(pyenv init -)"
+export PATH="/usr/local/opt/postgresql@18/bin:$PATH"

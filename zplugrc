@@ -7,6 +7,7 @@ else
 fi
 
 zplug "~/.zsh", from:local, use:"ruby.zsh"
+zplug "~/.zsh", from:local, use:"python.zsh"
 zplug "~/.zsh", from:local, use:"awscli-vars.zsh", defer:2
 zplug "~/.zsh", from:local, use:"java-osx.zsh", if:"[[ $OSTYPE == *darwin* ]]", defer:2
 #zplug "plugins/emacs",   from:oh-my-zsh, as:plugin

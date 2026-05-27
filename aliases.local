@@ -1,10 +1,79 @@
-alias cdmikasa="cd ~/code/homebot/mikasa"
-alias cdlockbox="cd ~/code/homebot/lockbox"
-alias cdms="npm --version >/dev/null 2>&1 && cd ~/code/homebot/main_street"
+# ================================================================================
+# git commands
+# ================================================================================
+alias gi="git init"
+alias ga="git add"
+alias gc="git commit -m"
+alias gs="git status"
+alias gd="git diff"
+alias gch="git checkout"
+alias gp="git push"
+alias gpo="git push origin"
+alias gpu="git push -u origin"
+alias gpl="git pull"
+alias gplo="git pull origin"
+alias gf="git fetch"
+alias gfo="git fetch origin"
+alias gb="git branch"
+alias gbd="git branch -D"
 
-# Add `npm --version` to ensure zsh-nvm has loaded in the shell
-# If missing, .nvmrc detection will not work due to zsh-nvm using lazy loading
-alias cdhbapi="npm --version >/dev/null 2>&1 && cd ~/code/homebot/api"
-alias cdhbweb="npm --version >/dev/null 2>&1 && cd ~/code/homebot/web"
 
+# ================================================================================
+# navigating directories
+# ================================================================================
+alias ~="cd ~"
+alias clever="cd ~/code/clever"
+alias autosourcer="cd ~/code/clever/autosourcer"
+alias oef="cd ~/code/clever/clever-order-entry"
+
+
+### ================================================================================
+### Add `npm --version` to ensure zsh-nvm has loaded in the shell
+### If missing, .nvmrc detection will not work due to zsh-nvm using lazy loading
+### ================================================================================
 alias tmux="direnv exec / tmux"
+
+
+# ================================================================================
+# common CLI commands
+# ================================================================================
+alias c="clear"
+alias ls="ls -G"
+alias ll="ls -la"
+
+
+# ================================================================================
+# Homebrew
+# ================================================================================
+alias brewupdate="brew update && brew upgrade && brew cleanup"
+
+
+### ------------------------------------------------------------
+### open bash shell (CLI) inside Docker container
+### (to run commands like `rails c`, `rspec`, `npm test`, etc.)
+### ------------------------------------------------------------
+alias bash_autosourcer="bash -c 'clear && docker exec -it autosourcer sh'"
+
+
+### ------------------------------------------------------------
+### attach to a Docker container
+### (to view logs, catch a `binding.pry` in local code)
+### ------------------------------------------------------------
+alias attach_autosourcer="docker attach --detach-keys 'ctrl-c' autosourcer"
+
+
+# ================================================================================
+# Heroku commands
+# ================================================================================
+
+
+
+# ================================================================================
+# System commands
+# ================================================================================
+alias disable_auto_updates="
+  sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyInstallMacOSUpdates -boolean FALSE ;
+  sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall -boolean FALSE ;
+  sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall -boolean FALSE ;
+  sudo defaults write /Library/Preferences/com.apple.commerce.plist AutoUpdate -bool FALSE
+"

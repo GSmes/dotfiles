@@ -21,12 +21,12 @@ install findutils
 install gnu-sed --default-names
 
 # Install Bash
-# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+# Note: don’t forget to add `/opt/homebrew/bin/bash` to `/etc/shells` before running `chsh`.
 install bash
 install bash-completion
 
 # Install ZSH
-# Note: don't forget to add `/usr/local/bin/zsh` to `/etc/shells` before running `chsh`
+# Note: don't forget to add `/opt/homebrew/bin/zsh` to `/etc/shells` before running `chsh`
 install zsh
 install zsh-completions
 

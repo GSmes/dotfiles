@@ -318,8 +318,8 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-  (setq exec-path (append exec-path '("/usr/local/bin")))
+  (setenv "PATH" (concat (getenv "PATH") ":/opt/homebrew/bin"))
+  (setq exec-path (append exec-path '("/opt/homebrew/bin")))
 
   ;; Stop ENV warnings
   (setq exec-path-from-shell-check-startup-files nil)

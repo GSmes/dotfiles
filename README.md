@@ -84,8 +84,8 @@ Your `~/.gitconfig.local` might look like this:
 
 Your `~/.zshrc.local` might look like this:
 
-    # recommended by brew doctor
-    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+    # recommended by brew doctor (Apple Silicon; use /usr/local on Intel Macs)
+    export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 Your `~/.vimrc.bundles.local` might look like this:
 

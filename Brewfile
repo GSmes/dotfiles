@@ -1,83 +1,132 @@
-# Install command-line tools using Homebrew
-# Usage: `brew bundle Brewfile`
-
-tap thoughtbot/formulae
-install rcm
-
-# Make sure we’re using the latest Homebrew
-update
-
-# Upgrade any already-installed formulae
-upgrade
-
-# Install GNU core utilities (those that come with OS X are outdated)
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
-install coreutils
-
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
-install findutils
-
-# Install GNU `sed`, overwriting the built-in `sed`
-install gnu-sed --default-names
-
-# Install Bash
-# Note: don’t forget to add `/opt/homebrew/bin/bash` to `/etc/shells` before running `chsh`.
-install bash
-install bash-completion
-
-# Install ZSH
-# Note: don't forget to add `/opt/homebrew/bin/zsh` to `/etc/shells` before running `chsh`
-install zsh
-install zsh-completions
-
-# Install wget with IRI support
-install wget 
-
-# Install more recent versions of some OS X tools
-install macvim --override-system-vim
-
-# Install other useful binaries
-install ack
-install the_silver_searcher
-install imagemagick
-install ghostscript
-install ctags
-
-# Version Control
-install git
-install git-flow-avh
-install git-extras
-install tig
-
-# Web Applications
-install postgresql
-install freeimage
-install ghostscript
-install imagemagick
-install qt
-install chromedriver
-install memcached
-install redis
-install heroku-toolbelt
-install phantomjs
-install node
-
-# Pairing Utilities
-install mobile-shell --HEAD
-install tmux
-install wemux
-install pow
-install reattach-to-user-namespace
-install ngrok
-
-# Ruby
-install rbenv
-install rbenv-gem-rehash
-install ruby-build
-
-# Python
-install python
-install pyenv
-
-# Remove outdated versions from the cellar
-cleanup
+tap "atlassian/acli", trusted: true
+tap "heroku/brew"
+tap "ngrok/ngrok", trusted: true
+# Search tool like grep, but optimized for programmers
+brew "ack"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Programmable completion for Bash 3.2
+brew "bash-completion"
+# Perl compatible regular expressions library with a new API
+brew "pcre2"
+# Cross-platform make
+brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Suite of command-line tools for converting to and working with CSV
+brew "csvkit"
+# Reimplementation of ctags(1)
+brew "ctags"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Functional metaprogramming aware language built on Erlang VM
+brew "elixir"
+# Postgres C API library
+brew "libpq"
+# WebDriver <-> Marionette proxy
+brew "geckodriver"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Small git utilities
+brew "git-extras"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# International Ispell
+brew "ispell"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Tool that can switch between kubectl contexts easily and create aliases
+brew "kubectx"
+# GUI for vim, made for macOS
+brew "macvim"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Adds support for geographic objects to PostgreSQL
+brew "postgis"
+# Object-relational database system
+brew "postgresql@18"
+# Python version management
+brew "pyenv"
+# Reattach process (e.g., tmux) to background
+brew "reattach-to-user-namespace"
+# Install various Ruby versions and implementations
+brew "ruby-build"
+# Multi-platform code-search similar to ack and ag
+brew "the_platinum_searcher"
+# Code-search similar to ack
+brew "the_silver_searcher"
+# Text interface for Git repositories
+brew "tig"
+# Terminal multiplexer
+brew "tmux"
+# CLI tool that moves files or folder to the trash
+brew "trash", link: true
+# Internet file retriever
+brew "wget"
+# JavaScript package manager
+brew "yarn", link: false
+# UNIX shell (command interpreter)
+brew "zsh"
+# Software to interact with Atlassian Cloud from the terminal
+brew "atlassian/acli/acli", trusted: true
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku", trusted: true
+# Securely stores and accesses AWS credentials in a development environment
+cask "aws-vault-binary"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# API documentation browser and code snippet manager
+cask "dash"
+# Web browser
+cask "firefox"
+cask "font-hack"
+cask "font-source-code-pro"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Tool to prevent the system from going into sleep mode
+cask "keepingyouawake"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# GUI client for PostgreSQL databases
+cask "postico"
+# HTTP client that helps testing and describing APIs
+cask "rapidapi"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
+# Digital design and prototyping platform
+cask "sketch"
+# Team communication and collaboration software
+cask "slack"
+# File transfer application
+cask "transmit"
+# OpenVPN client with AppleScript support
+cask "viscosity"
+# Open-source code editor
+cask "visual-studio-code"
+vscode "anthropic.claude-code"
+vscode "atlassian.atlascode"
+vscode "christian-kohler.npm-intellisense"
+vscode "eamodio.gitlens"
+vscode "github.vscode-github-actions"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.makefile-tools"
+vscode "openai.chatgpt"
+vscode "redhat.vscode-yaml"
+npm "corepack"

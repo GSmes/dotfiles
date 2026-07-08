@@ -21,7 +21,7 @@ export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 # completion
 # Ensure zsh's stock functions dir (where compinit lives) is on fpath.
 # Homebrew installs compinit under share/zsh/functions, not the Cellar path.
-fpath=(/usr/local/share/zsh/functions $fpath)
+fpath=(/opt/homebrew/share/zsh/functions $fpath)
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
@@ -30,13 +30,22 @@ else
   compinit -C
 fi
 
+export EDITOR='code'
+
 # enable colored output from ls, etc
 export CLICOLOR=1
 
-# Lazy load nvm on first use
-export NVM_LAZY_LOAD=true
+# Lazy load nvm on first use (not exported, so it doesn't leak into child
+# shells where the zsh-nvm plugin isn't loaded — e.g. VS Code task shells)
+NVM_LAZY_LOAD=true
 # NVM auto use
-export NVM_AUTO_USE=true
+NVM_AUTO_USE=true
+
+# Fallback so zsh-nvm's lazy/auto-use hooks don't error with
+# "command not found: _zsh_nvm_load" if the plugin hasn't loaded yet
+if ! typeset -f _zsh_nvm_load >/dev/null 2>&1; then
+  _zsh_nvm_load() { :; }
+fi
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private
@@ -46,4 +55,4 @@ source ~/.zplugrc
 # Aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 eval "$(pyenv init -)"
-export PATH="/usr/local/opt/postgresql@18/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"

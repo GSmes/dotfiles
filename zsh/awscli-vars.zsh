@@ -5,9 +5,10 @@
 #   Eric Czarny <eczarny@gmail.com>
 #
 
-# Return if requirements are not found.
+# Skip (cleanly) if requirements are not found. A non-zero return here makes
+# zplug report the whole ~/.zsh local repo as "failed to load".
 if (( ! $+commands[aws] )); then
-  return 1
+  return 0
 fi
 
 function export_aws_credentials() {
